@@ -1,0 +1,105 @@
+<table class="table table-profile">
+  <thead>
+    <tr>
+      <th colspan="2">BASIC INFORMATION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="field">Date of Birth</td>
+      <td class="value" *ngIf="profile">
+        {{ profile[0].dateOfBirth }}
+        <a class="m-l-10" (click)="open(datemodal)">Edit</a>
+      </td>
+    </tr>
+    <tr>
+      <td class="field">Gender</td>
+      <td class="value" *ngIf="profile">
+        {{ profile[0].gender }}
+        <a class="m-l-10" (click)="open(gendermodal)">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- date of birth  -->
+
+<ng-template #datemodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">edit birthday</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <mat-label>date of birth</mat-label>
+    <form #dateForm="ngForm">
+      <input
+        placeholder="date of birth"
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="dateOfBirth"
+        name="dateOfBirth"
+      />
+      <button (click)="updatedate(dateForm)" class="btn btn-primary">
+        Update
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
+
+<!-- gender  -->
+
+<ng-template #gendermodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">edit gender</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <mat-label>gender</mat-label>
+    <form #genderForm="ngForm">
+      <input
+        placeholder="gender"
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="gender"
+        name="gender"
+      />
+      <button (click)="updategender(genderForm)" class="mt-2 btn btn-primary">
+        Update
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,35 @@
+<div class="container mt-5" *ngIf="profiles">
+  <div class="main-body mt-5"  *ngFor="let profile of profiles">
+    <div
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm"
+     
+    >
+      <div class="col mb-3 mt-5">
+        <div class="card">
+          <div class="card-body text-center">
+            <img
+              src="{{ profile.picture }}"
+              style="width: 100px; margin-top: -65px"
+              alt="User"
+              class="img-fluid img-thumbnail rounded-circle border-0 mb-3"
+            />
+            <h5 class="card-title">
+              {{ profile.user.firstName }} {{ profile.user.lastName }}
+            </h5>
+            <p class="text-secondary mb-1">{{ profile.headline }}</p>
+            <p class="text-muted font-size-sm">{{ profile.user.email }}</p>
+          </div>
+          <div class="card-footer">
+            <button
+              class="btn btn-light btn-sm bg-white has-icon ml-2"
+              type="button"
+              (click)="goToProfile(profile.user._id)"
+            >
+              <fa-icon [icon]="faUser"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

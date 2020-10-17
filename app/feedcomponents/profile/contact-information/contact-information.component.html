@@ -1,0 +1,198 @@
+<table class="table table-profile">
+  <thead>
+    <tr>
+      <th colspan="2">CONTACT INFORMATION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="field">Mobile Phones</td>
+      <td class="value" *ngIf="profile">
+        {{ profile[0].mobilephone }}
+        <a class="m-l-10" (click)="open(phonemodal)">Edit</a>
+      </td>
+    </tr>
+    <tr>
+      <td class="field">Email</td>
+      <td class="value" *ngIf="profile">{{ profile[0].user.email }}</td>
+    </tr>
+    <tr>
+      <td class="field">Facebook</td>
+      <td class="value" *ngIf="profile">
+        {{ profile[0].facebook }}
+        <a class="m-l-10" (click)="open(facebookmodal)">Edit</a>
+      </td>
+    </tr>
+    <tr>
+      <td class="field">Website</td>
+      <td class="value" *ngIf="profile">
+        {{ profile[0].website }}
+        <a class="m-l-10" (click)="open(websitemodal)">Edit</a>
+      </td>
+    </tr>
+    <tr>
+      <td class="field">Address</td>
+      <td class="value" *ngIf="profile">
+        {{ profile[0].adress }}
+        <a class="m-l-10" (click)="open(adressmodal)">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- mobile phone -->
+<ng-template #phonemodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">edit mobile phone</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <mat-label>mobile phone</mat-label>
+    <form #mobilePhoneForm="ngForm">
+      <input
+        placeholder="mobile phone"
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="mobilephone"
+        name="mobilephone"
+      />
+      <button mat-button color="accent" class="btn btn-primary" (click)="updatePhone(mobilePhoneForm)">
+        Update
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
+
+<!-- facebook -->
+<ng-template #facebookmodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">edit facebook</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <mat-label>facebook link</mat-label>
+    <form #facebookForm="ngForm">
+      <input
+        placeholder="facebook link"
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="facebook"
+        name="facebook"
+      />
+      <button mat-button color="accent" class="btn btn-primary" (click)="updatefacebook(facebookForm)">
+        Update
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
+<!-- website -->
+<ng-template #websitemodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">edit website</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <mat-label>website link</mat-label>
+    <form #websiteForm="ngForm">
+      <input
+        placeholder="website link"
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="website"
+        name="website"
+      />
+      <button mat-button color="accent" class="btn btn-primary" (click)="updatewebsite(websiteForm)">
+        Update
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
+<!-- adress -->
+<ng-template #adressmodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">edit adress</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <mat-label>adress</mat-label>
+    <form #adressForm="ngForm">
+      <input
+        placeholder="your adress"
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="adress"
+        name="adress"
+      />
+      <button mat-button color="accent"  class="btn btn-primary" (click)="updateadress(adressForm)">
+        Update
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>

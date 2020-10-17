@@ -1,0 +1,26 @@
+<div class="container mt-5">
+<div class="mt-5">
+  <h1 class="text-center text-secondary p-5">Notifications</h1>
+
+</div>
+<div class="alert alert-primary d-flex flex-row" role="alert" *ngFor="let notification of listOfNotifications">
+  <div>
+    <img class="card-img-top" src="{{ notification.user[0].picture }}" alt="{{  notification.user[0].picture }}"class="rounded-circle"
+  
+    width="45" />
+    <a (click)="goToProfile(notification.user[0].user._id)">{{notification.user[0].user.firstName}} {{notification.user[0].user.lastName}}</a>
+  </div>
+  <div class="pt-2 pl-3" *ngIf="notification.status==1">
+ <p>has accepted your friend request</p>
+  </div>
+  <div class="pt-2 pl-3" *ngIf="notification.status==0">
+    <p>sent you a friend request</p>
+   
+     </div>
+
+</div>
+<div>
+  <button class="btn btn-danger" (click)="deleteNotif()">clear all notifications</button>
+</div>
+  
+</div>

@@ -1,0 +1,132 @@
+<div class="container" *ngIf="profile">
+  <div id="content" class="content p-0">
+    <div class="profile-header mt-5">
+      <div class="profile-header-cover"></div>
+
+      <div class="profile-header-content">
+        <div class="profile-header-img">
+          <img src="{{ profile[0].picture }}" alt="" />
+        </div>
+
+        <div class="profile-header-info">
+          <h4 class="m-t-sm">
+            {{ profile[0].user.firstName }} {{ profile[0].user.lastName }}
+          </h4>
+          <p class="m-b-sm">{{ profile[0].headline }}</p>
+
+          <a
+            class="btn btn-xs btn-primary mb-3"
+            *ngIf="status == null"
+            (click)="addFriend()"
+            >add friend</a
+          >
+         
+          <p *ngIf="status == 0">request pending</p>
+          <a
+            class="btn btn-xs btn-primary mb-3"
+            *ngIf="status == -1"
+            (click)="acceptRequest()"
+            >accept request</a
+          >
+          <a
+          class="btn btn-xs btn-danger mb-3 ml-2"
+          *ngIf="status == -1"
+          (click)="declineRequest()"
+          >decline request</a
+        >
+          <a
+            class="btn btn-xs btn-primary mb-3"
+            *ngIf="status == 1"
+            (click)="sendMessage()"
+            >send message</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-container">
+      <div class="row row-space-20">
+        <div class="col-md-8">
+          <div class="tab-content p-0">
+            <div class="tab-pane active show" id="profile-about">
+              <table class="table table-profile">
+                <thead>
+                  <tr>
+                    <th colspan="2">WORK AND EDUCATION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="field">Work</td>
+                    <td class="value">{{ profile[0].Work}}</td>
+
+                  </tr>
+                  <tr>
+                    <td class="field">Education</td>
+                    <td class="value">{{ profile[0].education}}</td>
+
+                  </tr>
+                  <tr>
+                    <td class="field">Skills</td>
+                    <td class="value">{{ profile[0].skills }}</td>
+
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-profile">
+                <thead>
+                  <tr>
+                    <th colspan="2">CONTACT INFORMATION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="field">Mobile Phones</td>
+                    <td class="value">{{ profile[0].mobilephone }}</td>
+                  </tr>
+                  <tr>
+                    <td class="field">Email</td>
+                    <td class="value">{{ profile[0].user.email }}</td>
+                  </tr>
+                  <tr>
+                    <td class="field">Facebook</td>
+                    <td class="value">{{ profile[0].facebook }}</td>
+                  </tr>
+                  <tr>
+                    <td class="field">Website</td>
+                    <td class="value">{{ profile[0].website }}</td>
+                  </tr>
+                  <tr>
+                    <td class="field">Address</td>
+                    <td class="value">{{ profile[0].adress }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-profile">
+                <thead>
+                  <tr>
+                    <th colspan="2">BASIC INFORMATION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="field">Date of Birth</td>
+                    <td class="value">{{ profile[0].dateOfBirth }}</td>
+                  </tr>
+                  <tr>
+                    <td class="field">Gender</td>
+                    <td class="value">{{ profile[0].gender }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 hidden-xs hidden-sm">
+          <!-- <app-personal-information></app-personal-information> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

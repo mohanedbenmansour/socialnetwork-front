@@ -1,0 +1,58 @@
+<div class="text-center signUp">
+    <img src="assets/logo2.png " width="120" height="50">
+    <h1 class="text-light pt-4">Make the most of your professional life
+    </h1>
+  <div class="container text-center">
+    <form
+    [formGroup]="profileForm"
+    (ngSubmit)="profileForm.valid && onSubmit(profileForm)"
+  >
+    <div>
+        <mat-form-field>
+
+        <input
+          placeholder="First Name"
+          type="text"
+          matInput
+          formControlName="firstName"
+        />
+    </mat-form-field>
+
+    </div>
+    <div>
+        <mat-form-field>
+
+        <input
+          placeholder="Last Name"
+          type="text"
+          matInput
+          formControlName="lastName"
+        />
+    </mat-form-field>
+
+    </div>
+        <div>
+            <mat-form-field>
+                <input placeholder="Email" type="email" matInput formControlName="email" />
+               
+              </mat-form-field>
+        </div>
+    
+  
+    
+        <div>
+            <mat-form-field>
+                <input placeholder="password" type="password" matInput formControlName="password" />
+               
+              </mat-form-field>
+        </div>
+    
+    
+    <div  class="pt-4">
+      <button mat-button color="accent" type="submit">Submit</button>
+
+    </div>
+    </form>
+
+  </div>
+</div>

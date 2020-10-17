@@ -1,0 +1,152 @@
+<table class="table table-profile">
+  <thead>
+    <tr>
+      <th colspan="2">WORK AND EDUCATION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="field">work</td>
+      <td class="value" *ngIf="profile">
+        {{ profile[0].work }}
+        <a class="m-l-10" (click)="open(workmodal)">Edit</a>
+      </td>
+    </tr>
+    <tr>
+      <td class="field">education</td>
+      <td class="value" *ngIf="profile">
+        {{ profile[0].education }}
+        <a class="m-l-10" (click)="open(educationmodal)">Edit</a>
+      </td>
+    </tr>
+    <tr>
+      <td class="field">skills</td>
+      <td class="value" *ngIf="profile">
+        {{ profile[0].skills }}
+        <a class="m-l-10" (click)="open(skillsmodal)">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- work  -->
+
+<ng-template #workmodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">edit work</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <mat-label>work</mat-label>
+    <form #workForm="ngForm">
+      <input
+        placeholder="work"
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="work"
+        name="work"
+      />
+      <button (click)="updatework(workForm)" class="btn btn-primary">
+        Update
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
+
+<!-- education  -->
+
+<ng-template #educationmodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">edit education</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <mat-label>education</mat-label>
+    <form #educationForm="ngForm">
+      <input
+        placeholder="education"
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="education"
+        name="education"
+      />
+      <button (click)="updateeducation(educationForm)" class="mt-2 btn btn-primary">
+        Update
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
+<!-- skills  -->
+
+<ng-template #skillsmodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">edit skills</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <mat-label>skills</mat-label>
+    <form #skillsForm="ngForm">
+      <input
+        placeholder="skills"
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="skills"
+        name="skills"
+      />
+      <button (click)="updateskills(skillsForm)" class="mt-2 btn btn-primary">
+        Update
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
